@@ -1,4 +1,8 @@
-#include "libraris.h"
+#include "fun.h"
+#include <stdio.h>
+#include "bin_fun.h"
+#include "fun_for_search.h"
+#include "fun_for_clean.h"
 
 int main() {
     FILE *fbin = NULL;
@@ -8,20 +12,14 @@ int main() {
         printf("n/a");
     } else {
         switch (n) {
-            case 0:
-                addBin(fbin);
-            case 1:
-            printf("sort start\n");
-                sortBin(fbin);
-                printf("sort good!\n");
-                outputBin(fbin);
-                break;
             case 2:
+                if (!addBin(fbin)) { printf("n/a"); break; }
+            case 1:
+                sortBin(fbin);
+            case 0:
                 outputBin(fbin);
-                break;
         }
         closeBin(fbin);
     }
-    // printf("%s\t%d", path, n);
     return 0;
 }
